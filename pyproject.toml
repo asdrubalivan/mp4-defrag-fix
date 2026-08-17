@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mp4defrag"
+version = "0.1.0"
+description = "Detecta y arregla MP4 con data fragmentada en múltiples mdat (bug jellyfin-roku#834)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Asdrúbal Iván Suárez Rivera" }]
+keywords = ["mp4", "jellyfin", "roku", "ffmpeg", "remux", "mdat"]
+dependencies = ["typer>=0.12"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/asdrubalivan/mp4-defrag-fix"
+Issues = "https://github.com/asdrubalivan/mp4-defrag-fix/issues"
+
+[project.scripts]
+mp4defrag = "mp4defrag.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mp4defrag"]
